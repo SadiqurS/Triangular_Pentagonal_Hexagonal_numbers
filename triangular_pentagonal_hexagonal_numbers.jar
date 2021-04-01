@@ -1,0 +1,35 @@
+import java.math.BigInteger;
+public class project {
+
+   public static void main(String work[]){
+       BigInteger triangle =new BigInteger("40755");//The Given Number, we use Big integer because it doesn't have limit
+       BigInteger pentagonal =new BigInteger("40755");//The Given Number,
+       BigInteger hexagonal =new BigInteger("40755");// The Given NUmber,
+
+       long tn= 285; // Using Int will return a Negative which I use Long
+       long pn= 165; // Using Int will return a Negative which I use Long
+       long hn= 143; // Using Int will return a Negative which I use Long
+
+           do{//one step at a time
+               if(triangle.compareTo(hexagonal) > 0){// Check if Hexagonal is small                        then Triangle, Then Hexagonal wii increase
+                   hn++;
+                   hexagonal=BigInteger.valueOf(hn*(2*hn-1));
+               }
+
+               else if(triangle.compareTo(pentagonal) > 0){//Check if Pentagonal is smaller than Triangle, Then Pentagonal will increase
+                   pn++;
+                   pentagonal=BigInteger.valueOf(pn*(3*pn-1)/2);
+               }
+
+               else{//if they are not equal then triangle needed to be an increase
+                   tn++;
+                   triangle=BigInteger.valueOf(tn*(tn+1)/2);
+               }
+
+           }while(!((triangle.equals(pentagonal))&&(pentagonal.equals(hexagonal))));//Because there only
+       System.out.println(triangle + " " +pentagonal + " " + hexagonal );
+       }
+
+}
+
+
